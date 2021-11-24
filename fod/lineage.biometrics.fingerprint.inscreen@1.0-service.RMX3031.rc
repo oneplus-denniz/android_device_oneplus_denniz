@@ -1,4 +1,4 @@
-service fingerprint-inscreen-1-0.DN2103 /system/bin/hw/lineage.biometrics.fingerprint.inscreen@1.0-service.DN2103
+service fingerprint-inscreen-1-0.OP515BL1 /system/bin/hw/lineage.biometrics.fingerprint.inscreen@1.0-service.OP515BL1
     interface vendor.lineage.biometrics.fingerprint.inscreen@1.0::IFingerprintInscreen default
     class hal
     user system

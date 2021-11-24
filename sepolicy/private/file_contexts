@@ -1,7 +1,7 @@
 # Biometrics
-/system/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.DN2103 u:object_r:hal_fingerprint_DN2103_exec:s0
+/system/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.OP515BL1 u:object_r:hal_fingerprint_OP515BL1_exec:s0
 
-/system/bin/hw/lineage\.biometrics\.fingerprint\.inscreen@1.0-service\.DN2103    u:object_r:hal_lineage_fod_DN2103_exec:s0
+/system/bin/hw/lineage\.biometrics\.fingerprint\.inscreen@1.0-service\.OP515BL1    u:object_r:hal_lineage_fod_OP515BL1_exec:s0
 
 /sys/kernel/oppo_display/oppo_notify_fppress     u:object_r:sysfs_fingerprint_notify:s0
 

@@ -57,8 +57,8 @@ PRODUCT_COPY_FILES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service.DN2103 \
-    lineage.biometrics.fingerprint.inscreen@1.0-service.DN2103
+    android.hardware.biometrics.fingerprint@2.1-service.OP515BL1 \
+    lineage.biometrics.fingerprint.inscreen@1.0-service.OP515BL1
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.fingerprint.xml
@@ -92,7 +92,7 @@ PRODUCT_AAPT_PREF_CONFIG := xxxhdpi
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.DN2103
+    android.hardware.light@2.0-service.OP515BL1
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \

@@ -1,4 +1,4 @@
-service fps_hal.DN2103EEA /system/bin/hw/android.hardware.biometrics.fingerprint@2.1-service.DN2103
+service fps_hal.OP515BL1 /system/bin/hw/android.hardware.biometrics.fingerprint@2.1-service.OP515BL1
     class late_start
     user system
     group system input
