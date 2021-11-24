@@ -25,7 +25,7 @@
 #include <hidl/Status.h>
 #include <android/hardware/biometrics/fingerprint/2.1/IBiometricsFingerprint.h>
 #include <android/hardware/biometrics/fingerprint/2.1/types.h>
-#include <vendor/oplus/hardware/biometrics/fingerprint/2.1/IBiometricsFingerprint.h>
+#include <vendor/oneplus/hardware/biometrics/fingerprint/2.1/IBiometricsFingerprint.h>
 
 namespace android {
 namespace hardware {

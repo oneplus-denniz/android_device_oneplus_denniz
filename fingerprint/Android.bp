@@ -19,6 +19,6 @@ cc_binary {
         "libutils",
         "libbase",
         "android.hardware.biometrics.fingerprint@2.1",
-        "vendor.oplus.hardware.biometrics.fingerprint@2.1",
+        "vendor.oneplus.hardware.biometrics.fingerprint@2.1",
     ],
 }
