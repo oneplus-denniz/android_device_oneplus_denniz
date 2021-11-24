@@ -1,0 +1,14 @@
+service fingerprint-inscreen-1-0.DN2103 /system/bin/hw/lineage.biometrics.fingerprint.inscreen@1.0-service.DN2103
+    interface vendor.lineage.biometrics.fingerprint.inscreen@1.0::IFingerprintInscreen default
+    class hal
+    user system
+    group system
+    shutdown critical
+
+on boot
+    chmod 0660 /sys/kernel/oppo_display/oppo_notify_fppress
+    chmod 0660 /sys/kernel/oppo_display/hbm
+    chmod 0660 /sys/kernel/oppo_display/dimlayer_bl_en
+    chown system system /sys/kernel/oppo_display/oppo_notify_fppress
+    chown system system /sys/kernel/oppo_display/hbm
+    chown system system /sys/kernel/oppo_display/dimlayer_bl_en

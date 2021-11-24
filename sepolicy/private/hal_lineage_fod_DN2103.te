@@ -1,0 +1,23 @@
+type hal_lineage_fod_DN2103, domain;
+hal_server_domain(hal_lineage_fod_DN2103, hal_lineage_fod)
+
+type hal_lineage_fod_DN2103_exec, exec_type, system_file_type, file_type;
+init_daemon_domain(hal_lineage_fod_DN2103)
+
+# Allow access to the HALs
+hal_client_domain(hal_lineage_fod_DN2103, hal_fingerprint)
+
+# Allow hal_lineage_fod_DN2103 to hal_fingerprint_hwservice
+allow hal_lineage_fod_DN2103 hal_fingerprint_hwservice:hwservice_manager find;
+
+# Allow hal_lineage_fod_DN2103 to read and write to sysfs_fod
+allow hal_lineage_fod_DN2103 sysfs_fod:file rw_file_perms;
+
+# Allow to use wakelock
+wakelock_use(hal_lineage_fod_DN2103)
+
+# Allow sysfs to open and write a file
+allow hal_lineage_fod_DN2103 sysfs:file { open write };
+
+# Allow sysfs fingerprint notify file to open and write
+allow hal_lineage_fod_DN2103 sysfs_fingerprint_notify:file { open write };
