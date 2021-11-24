@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/oplus/nord2
+DEVICE_PATH := device/oneplus/OP515BL1
 
 # Installs gsi keys into ramdisk, to boot a GSI with verified boot.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
@@ -28,7 +28,7 @@ $(call inherit-product-if-exists, packages/apps/RealmeParts/parts.mk)
 PRODUCT_SHIPPING_API_LEVEL := 30
 
 # Call proprietary blob setup
-$(call inherit-product-if-exists, vendor/oplus/nord2/DN2103-vendor.mk)
+$(call inherit-product-if-exists, vendor/oneplus/OP515BL1/OP515BL1-vendor.mk)
 
 # Dynamic Partition
 PRODUCT_USE_DYNAMIC_PARTITIONS := true

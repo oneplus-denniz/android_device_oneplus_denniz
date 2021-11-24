@@ -18,8 +18,8 @@
 
 set -e
 
-export DEVICE=nord2
-export VENDOR=oplus
+export DEVICE=OP515BL1
+export VENDOR=oneplus
 
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"

@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/oplus/nord2
+DEVICE_PATH := device/oneplus/OP515BL1
 
 # Architecture
 TARGET_ARCH := arm64

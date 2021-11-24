@@ -18,8 +18,8 @@
 
 set -e
 
-export DEVICE=DN2103
-export VENDOR=OnePlus
+export DEVICE=OP515BL1
+export VENDOR=oneplus
 
 INITIAL_COPYRIGHT_YEAR=2021
 
@@ -40,7 +40,7 @@ source "${HELPER}"
 setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false
 
 # Copyright headers and guards
-write_headers "DN2103"
+write_headers "OP515BL1"
 
 # The standard blobs
 write_makefiles "${MY_DIR}/proprietary-files.txt" true
