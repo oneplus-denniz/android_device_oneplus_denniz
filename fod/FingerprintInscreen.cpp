@@ -24,8 +24,8 @@
 #include <thread>
 
 /* Hardcoded stuffs */
-#define FP_PRESS_PATH "/sys/kernel/oppo_display/oppo_notify_fppress"
-#define DIMLAYER_PATH "/sys/kernel/oppo_display/dimlayer_bl_en"
+#define FP_PRESS_PATH "/sys/kernel/oplus_display/oplus_notify_fppress"
+#define DIMLAYER_PATH "/sys/kernel/oplus_display/dimlayer_bl_en"
 #define X_POS 443
 #define Y_POS 2088
 #define FP_SIZE 194

@@ -1,4 +1,4 @@
-package org.lineageos.oppo.imsinit;
+package org.lineageos.oplus.imsinit;
 
 import android.app.Service;
 import android.content.Context;
