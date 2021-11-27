@@ -108,10 +108,9 @@ PRODUCT_SOONG_NAMESPACES += \
 -include $(DEVICE_PATH)/system_prop.mk
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 
-#TODO: add libshim package
-# symbols
-#PRODUCT_PACKAGES += \
-#    libshim_vtservice
+# symbol (libshim)
+PRODUCT_PACKAGES += \
+    libshim_vtservice
 
 #TODO: add telephony jars
 # telephony
