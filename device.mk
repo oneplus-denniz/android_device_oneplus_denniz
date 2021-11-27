@@ -123,9 +123,8 @@ PRODUCT_PACKAGES += \
 #    mediatek-telephony-base \
 #    mediatek-telephony-common
 
-#TODO: add ims service package
-#PRODUCT_PACKAGES += \
-#    ImsServiceBase
+PRODUCT_PACKAGES += \
+    ImsServiceBase
 
 #TODO: add wifi packages
 # wifi
