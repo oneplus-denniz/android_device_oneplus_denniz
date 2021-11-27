@@ -4,8 +4,7 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-#TODO: create device makefile
-# Inherit from device makefile
+# inherit from device makefile
 $(call inherit-product, device/oneplus/OP515BL1/device.mk)
 
 # device identifier
