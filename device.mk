@@ -60,10 +60,9 @@ PRODUCT_PACKAGES += \
     libhidltransport \
     libhwbinder
 
-#TODO: add ImsInit package
 # ImsInit hack
-#PRODUCT_PACKAGES += \
-#    ImsInit
+PRODUCT_PACKAGES += \
+    ImsInit
 
 #TODO: add init packages
 # init
