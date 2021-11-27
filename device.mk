@@ -71,10 +71,9 @@ PRODUCT_PACKAGES += \
 #    fstab.mt6893 \
 #    perf_profile.sh
 
-#TODO: add keylayout config
 # keylayouts
-#PRODUCT_COPY_FILES += \
-#    $(DEVICE_PATH)/keylayout/touchpanel.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/touchpanel.kl
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/keylayout/touchpanel.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/touchpanel.kl
 
 # screen density
 PRODUCT_AAPT_CONFIG := xxxhdpi
