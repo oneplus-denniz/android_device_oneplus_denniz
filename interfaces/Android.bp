@@ -1,4 +1,0 @@
-hidl_package_root {
-    name: "vendor.oneplus.hardware",
-    path: "device/oneplus/OP515BL1/interfaces",
-}

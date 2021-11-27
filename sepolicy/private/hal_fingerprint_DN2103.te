@@ -1,6 +1,0 @@
-type hal_fingerprint_OP515BL1, domain;
-hal_client_domain(hal_fingerprint_OP515BL1, hal_fingerprint)
-hal_server_domain(hal_fingerprint_OP515BL1, hal_fingerprint)
-
-type hal_fingerprint_OP515BL1_exec, system_file_type, exec_type, file_type;
-init_daemon_domain(hal_fingerprint_OP515BL1)
