@@ -46,9 +46,8 @@ BUILD_BROKEN_DUP_RULES := true
 # filesystem
 #TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
-#TODO: add libfod extension
 # FOD
-#TARGET_SURFACEFLINGER_FOD_LIB := //$(DEVICE_PATH):libfod_extension.OP515BL1
+TARGET_SURFACEFLINGER_FOD_LIB := //$(DEVICE_PATH):libfod_extension.OP515BL1
 
 # kernel
 TARGET_KERNEL_CONFIG := OP515BL1_defconfig
