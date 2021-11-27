@@ -104,10 +104,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_SOONG_NAMESPACES += \
     $(DEVICE_PATH)
 
-#TODO: add system prop makefile
 # system prop
-#-include $(DEVICE_PATH)/system_prop.mk
-#PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
+-include $(DEVICE_PATH)/system_prop.mk
+PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 
 #TODO: add libshim package
 # symbols
