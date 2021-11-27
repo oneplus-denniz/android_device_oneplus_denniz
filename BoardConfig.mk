@@ -42,9 +42,8 @@ TARGET_NO_BOOTLOADER := true
 # build system
 BUILD_BROKEN_DUP_RULES := true
 
-#TODO: add file system config
 # filesystem
-#TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
+TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
 # FOD
 TARGET_SURFACEFLINGER_FOD_LIB := //$(DEVICE_PATH):libfod_extension.OP515BL1
