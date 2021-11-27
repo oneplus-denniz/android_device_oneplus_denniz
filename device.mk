@@ -80,11 +80,10 @@ PRODUCT_AAPT_PREF_CONFIG := xxxhdpi
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.OP515BL1
 
-#TODO: add overlay packages
 # overlays
-#DEVICE_PACKAGE_OVERLAYS += \
-#    $(DEVICE_PATH)/overlay \
-#    $(DEVICE_PATH)/overlay-lineage
+DEVICE_PACKAGE_OVERLAYS += \
+    $(DEVICE_PATH)/overlay \
+    $(DEVICE_PATH)/overlay-lineage
 
 #TODO: add permissions config
 # permissions
