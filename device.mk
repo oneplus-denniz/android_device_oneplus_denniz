@@ -76,10 +76,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_AAPT_CONFIG := xxxhdpi
 PRODUCT_AAPT_PREF_CONFIG := xxxhdpi
 
-#TODO: add lights service
 # lights
-#PRODUCT_PACKAGES += \
-#    android.hardware.light@2.0-service.OP515BL1
+PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-service.OP515BL1
 
 #TODO: add overlay packages
 # overlays
