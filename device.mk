@@ -93,12 +93,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     init.recovery.mt6893.rc
 
-#TODO: add rc's services
+#TODO: test if this is available
 # rc's service
-#PRODUCT_PACKAGES += \
-#    com.android.ims.rcsmanager \
-#    RcsService \
-#    PresencePolling
+PRODUCT_PACKAGES += \
+    com.android.ims.rcsmanager \
+    RcsService \
+    PresencePolling
 
 # soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
