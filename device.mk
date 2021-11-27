@@ -38,9 +38,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     fastbootd
 
-#TODO: add fstab
-#PRODUCT_COPY_FILES += \
-#    $(DEVICE_PATH)/rootdir/etc/fstab.mt6893:$(TARGET_COPY_OUT_RAMDISK)/fstab.mt6893
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/rootdir/etc/fstab.mt6893:$(TARGET_COPY_OUT_RAMDISK)/fstab.mt6893
 
 #TODO: add fingerprint services
 # fingerprint
@@ -64,12 +63,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     ImsInit
 
-#TODO: add init packages
 # init
-#PRODUCT_PACKAGES += \
-#    init.mt6893.rc \
-#    fstab.mt6893 \
-#    perf_profile.sh
+PRODUCT_PACKAGES += \
+    init.mt6893.rc \
+    fstab.mt6893 \
+    perf_profile.sh
 
 # keylayouts
 PRODUCT_COPY_FILES += \
