@@ -112,24 +112,24 @@ PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 PRODUCT_PACKAGES += \
     libshim_vtservice
 
-#TODO: add telephony jars
+#TODO: test if this is available
 # telephony
-#PRODUCT_BOOT_JARS += \
-#    mediatek-common \
-#    mediatek-framework \
-#    mediatek-ims-base \
-#    mediatek-ims-common \
-#    mediatek-telecom-common \
-#    mediatek-telephony-base \
-#    mediatek-telephony-common
+PRODUCT_BOOT_JARS += \
+    mediatek-common \
+    mediatek-framework \
+    mediatek-ims-base \
+    mediatek-ims-common \
+    mediatek-telecom-common \
+    mediatek-telephony-base \
+    mediatek-telephony-common
 
 PRODUCT_PACKAGES += \
     ImsServiceBase
 
-#TODO: add wifi packages
+#TODO: test if this is available
 # wifi
-#PRODUCT_PACKAGES += \
-#    TetheringConfigOverlay \
-#    WifiOverlay \
-#    DozeOverlaySystem \
-#    DozeOverlaySystemUI
+PRODUCT_PACKAGES += \
+    TetheringConfigOverlay \
+    WifiOverlay \
+    DozeOverlaySystem \
+    DozeOverlaySystemUI
