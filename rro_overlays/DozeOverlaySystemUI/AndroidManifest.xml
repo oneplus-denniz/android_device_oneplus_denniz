@@ -1,0 +1,15 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+        android:compileSdkVersion="31"
+        android:compileSdkVersionCodename="12"
+        package="com.realme.doze.overlay_systemui"
+        platformBuildVersionCode="31"
+        platformBuildVersionName="12">
+
+    <application
+               android:extractNativeLibs="true" 
+               android:hasCode="false"/>
+    <overlay 
+           android:isStatic="true" 
+           android:priority="6969" 
+           android:targetPackage="com.android.systemui" />
+</manifest>

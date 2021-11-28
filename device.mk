@@ -126,7 +126,6 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_PACKAGES += \
     ImsServiceBase
 
-#TODO: test if this is available
 # wifi
 PRODUCT_PACKAGES += \
     TetheringConfigOverlay \
