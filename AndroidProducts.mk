@@ -1,4 +1,10 @@
-# Add the OP515BL1 to lunch build options
+############################################
+#										   #
+# Copyright (C) 2021 The LineageOS Project #
+#										   #
+# SPDX-License-Identifier: Apache-2.0	   #
+#										   #
+############################################
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/lineage_OP515BL1.mk
