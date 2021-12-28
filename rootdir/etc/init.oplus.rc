@@ -1,0 +1,63 @@
+on init
+    # Update fastcharge firmware
+    chown system system /proc/fastchg_fw_update
+    write /proc/fastchg_fw_update 1
+
+on post-fs
+
+on property:sys.boot_completed=1
+
+on property:init.svc.face_hal=restarting
+    stop face_hal
+
+service prop-adap-core-gsi /odm/bin/self-init gsicore
+    class core
+    user root
+    group root system radio
+    oneshot
+    override
+    disabled
+
+service prop-adap-main-gsi /odm/bin/self-init gsimain
+    class main
+    user root
+    group root system radio
+    oneshot
+    override
+    disabled
+
+on post-fs-data
+    # Update vibrator firmware
+    write /sys/class/leds/vibrator/ram_update 1
+
+on boot
+    # Disable edge limit control interface
+    chmod 0660 /proc/touchpanel/oplus_tp_limit_enable
+    chmod 0660 /proc/touchpanel/oplus_tp_direction
+    chown system system /proc/touchpanel/oplus_tp_limit_enable
+    chown system system /proc/touchpanel/oplus_tp_direction
+    write /proc/touchpanel/oplus_tp_limit_enable 0
+    write /proc/touchpanel/oplus_tp_direction 1
+
+    # OTG
+    chown system system /sys/class/oplus_chg/usb/otg_switch
+    write /sys/class/oplus_chg/usb/otg_switch 1
+
+    # Vibrator
+    chmod 0660 /sys/class/leds/vibrator/rtp
+    chown system audio /sys/class/leds/vibrator/rtp
+    chown system system /sys/class/leds/vibrator/f0
+    chown system system /sys/class/leds/vibrator/cali
+    chown system system /sys/class/leds/vibrator/vmax
+    chown system system /sys/class/leds/vibrator/index
+    chown system system /sys/class/leds/vibrator/loop
+    chown system system /sys/class/leds/vibrator/lra_resistance
+    chown system system /sys/class/leds/vibrator/ram_update
+    chown system system /sys/class/leds/vibrator/seq
+    chown system system /sys/class/leds/vibrator/motor_old
+    chown system system /sys/class/leds/vibrator/waveform_index
+    chown system system /sys/class/leds/vibrator/osc_cali
+    chown system system /sys/class/leds/vibrator/osc_data
+    chown system system /sys/class/leds/vibrator/ram_test
+    chown system system /sys/class/leds/vibrator/f0_data
+    chown system system /sys/class/leds/vibrator/rtp_going

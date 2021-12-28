@@ -1,0 +1,2 @@
+# Alert slider
+/(system_ext|system/system_ext)/bin/alert-slider_daemon    u:object_r:alert-slider_daemon_exec:s0

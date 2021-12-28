@@ -1,16 +1,17 @@
 #!/bin/bash
-# setup vendor makefiles
+#
+# Copyright (C) 2016 The CyanogenMod Project
+# Copyright (C) 2017-2020 The LineageOS Project
+#
+# SPDX-License-Identifier: Apache-2.0
+#
 
 set -e
 
-#####################  SETTINGS  #####################
-export DEVICE=OP515BL1
-export VENDOR=oneplus
-######################################################
+DEVICE=denniz
+VENDOR=oneplus
 
-INITIAL_COPYRIGHT_YEAR=2021
-
-# load extract_utils and do some sanity checks
+# Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
@@ -23,14 +24,13 @@ if [ ! -f "${HELPER}" ]; then
 fi
 source "${HELPER}"
 
-# initialize the helper for device
-setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false
+# Initialize the helper
+setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}"
 
-# copyright headers and guards
-write_headers "OP515BL1"
+# Warning headers and guards
+write_headers
 
-# the standard blobs
 write_makefiles "${MY_DIR}/proprietary-files.txt" true
 
-# finish
+# Finish
 write_footers

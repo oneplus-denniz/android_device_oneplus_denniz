@@ -1,0 +1,52 @@
+# Audio
+ro.audio.silent=0
+ro.camera.sound.forced=0
+
+# Brand
+Build.BRAND=MTK
+
+# Camera
+vendor.camera.aux.packagelist=org.lineageos.snap
+
+# Display
+qemu.hw.mainkeys=0
+ro.opengles.version=196610
+ro.zygote.preload.enable=0
+
+# IPO
+sys.ipo.disable=1
+
+# Kernel
+ro.kernel.zio=38,108,105,16
+
+# Media
+ro.vendor.oplus.vendorxml.enable=1
+
+# Order
+ro.product.property_source_order=odm,vendor,product,system
+
+# Perf
+ro.mtk_perf_fast_start_win=1
+ro.mtk_perf_response_time=1
+ro.mtk_perf_simple_start_win=1
+
+# Power
+sys.ipo.pwrdncap=2
+
+# Radio
+vendor.rild.libpath=mtk-ril.so
+vendor.rild.libargs=-d /dev/ttyC0
+
+# USB
+ro.sys.usb.mtp.whql.enable=0
+ro.sys.usb.storage.type=mtp
+ro.sys.usb.bicr=no
+ro.sys.usb.charging.only=yes
+
+# Wifi
+mediatek.wlan.ctia=0
+ro.mediatek.wlan.p2p=1
+ro.mediatek.wlan.wsc=1
+wifi.direct.interface=p2p0
+wifi.interface=wlan0
+wifi.tethering.interface=ap0

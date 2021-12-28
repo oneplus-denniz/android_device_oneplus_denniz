@@ -1,18 +1,21 @@
 #!/bin/bash
-# extract vendor files from phone
+#
+# Copyright (C) 2016 The CyanogenMod Project
+# Copyright (C) 2017-2020 The LineageOS Project
+#
+# SPDX-License-Identifier: Apache-2.0
+#
 
 set -e
 
-#####################  SETTINGS  #####################
-export DEVICE=OP515BL1
-export VENDOR=oneplus
-######################################################
+DEVICE=denniz
+VENDOR=oneplus
 
-# load extract_utils and do some sanity checks
+# Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
-ANDROID_ROOT="${MY_DIR}"/../../..
+ANDROID_ROOT="${MY_DIR}/../../.."
 
 HELPER="${ANDROID_ROOT}/tools/extract-utils/extract_utils.sh"
 if [ ! -f "${HELPER}" ]; then
@@ -21,11 +24,11 @@ if [ ! -f "${HELPER}" ]; then
 fi
 source "${HELPER}"
 
-# default to sanitizing the vendor folder before extraction
+# Default to sanitizing the vendor folder before extraction
 CLEAN_VENDOR=true
 
-SECTION=
 KANG=
+SECTION=
 
 while [ "${#}" -gt 0 ]; do
     case "${1}" in
@@ -50,10 +53,17 @@ if [ -z "${SRC}" ]; then
     SRC="adb"
 fi
 
-# initialize the helper for device
-setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" true "${CLEAN_VENDOR}"
+function blob_fixup {
+    case "${1}" in
+        lib/libsink.so)
+            "${PATCHELF}" --add-needed "libshim_vtservice.so" "${2}"
+            ;;
+    esac
+}
 
-extract "${MY_DIR}/proprietary-files.txt" "${SRC}" \
-        "${KANG}" --section "${SECTION}"
+# Initialize the helper
+setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false "${CLEAN_VENDOR}"
+
+extract "${MY_DIR}/proprietary-files.txt" "${SRC}" "${KANG}" --section "${SECTION}"
 
 "${MY_DIR}/setup-makefiles.sh"

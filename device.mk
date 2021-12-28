@@ -1,120 +1,74 @@
-# full makefile for the device
+#
+# Copyright (C) 2021 The LineageOS Project
+#
+# SPDX-License-Identifier: Apache-2.0
+#
 
-DEVICE_PATH := device/oneplus/OP515BL1
-
-# installs gsi keys into ramdisk, to boot a GSI with verified boot
-$(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
-
-# enable updating of APEXes
+# Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
-#TODO: check parts makefile
+# Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 
-PRODUCT_SHIPPING_API_LEVEL := 30
+# Alert slider
+PRODUCT_PACKAGES += \
+    alert-slider_daemon
 
-# call proprietary blob setup
-$(call inherit-product-if-exists, vendor/oneplus/OP515BL1/OP515BL1-vendor.mk)
-
-# dynamic partition
-PRODUCT_USE_DYNAMIC_PARTITIONS := true
-PRODUCT_BUILD_SUPER_PARTITION := false
-
-# boot animation
+# Boot animation
 TARGET_SCREEN_HEIGHT := 2400
 TARGET_SCREEN_WIDTH := 1080
 
-# A/B
-AB_OTA_UPDATER := false
-
-# audio
+# Camera
 PRODUCT_PACKAGES += \
-    audio.a2dp.default
+   Snap
 
+# Input
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PLATFORM_VNDK_VERSION)/etc/audio_policy_configuration.xml
+    $(LOCAL_PATH)/keylayout/touchpanel.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/touchpanel.kl \
+    $(LOCAL_PATH)/keylayout/mt63xx-accdet_Headset.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/mt63xx-accdet_Headset.kl
 
-#TODO: test if this is available
+# Device uses high-density artwork where available
+PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_PREF_CONFIG := xxhdpi
+
 # fastbootd
 PRODUCT_PACKAGES += \
     fastbootd
 
-PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/rootdir/etc/fstab.mt6893:$(TARGET_COPY_OUT_RAMDISK)/fstab.mt6893
-
-# fingerprint
+# NFC
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service.OP515BL1 \
-    lineage.biometrics.fingerprint.inscreen@1.0-service.OP515BL1
+    com.android.nfc_extras \
+    NfcNci \
+    SecureElement \
+    Tag
 
+# Overlays
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay \
+    $(LOCAL_PATH)/overlay-lineage
+
+# Permissions
 PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.fingerprint.xml
+    frameworks/native/data/etc/android.hardware.sensor.light.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/permissions/android.hardware.sensor.light.xml
 
-# lineage specific perms
-PRODUCT_COPY_FILES += \
-    vendor/lineage/config/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml:system/etc/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml
+# Partitions
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
-# HIDL
-PRODUCT_PACKAGES += \
-    libhidltransport \
-    libhwbinder
-
-# ImsInit hack
-PRODUCT_PACKAGES += \
-    ImsInit
-
-# init
+# Rootdir
 PRODUCT_PACKAGES += \
     init.mt6893.rc \
+    init.oplus.rc \
+    init.recovery.mt6893.rc \
     fstab.mt6893 \
-    perf_profile.sh
+    fstab.mt6893_ramdisk
 
-# keylayouts
-PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/keylayout/touchpanel.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/touchpanel.kl
-
-# screen density
-PRODUCT_AAPT_CONFIG := xxxhdpi
-PRODUCT_AAPT_PREF_CONFIG := xxxhdpi
-
-# lights
-PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.OP515BL1
-
-# overlays
-DEVICE_PACKAGE_OVERLAYS += \
-    $(DEVICE_PATH)/overlay \
-    $(DEVICE_PATH)/overlay-lineage
-
-# permissions
-PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/permissions/privapp-permissions-mediatek.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-mediatek.xml
-
-# recovery
-PRODUCT_PACKAGES += \
-    init.recovery.mt6893.rc
-
-#TODO: test if this is available
-# rc's service
-PRODUCT_PACKAGES += \
-    com.android.ims.rcsmanager \
-    RcsService \
-    PresencePolling
-
-# soong namespaces
+# Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(DEVICE_PATH)
+    $(LOCAL_PATH)
 
-# system prop
--include $(DEVICE_PATH)/system_prop.mk
-PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
-
-# symbol (libshim)
-PRODUCT_PACKAGES += \
-    libshim_vtservice
-
-#TODO: test if this is available
-# telephony
+# Telephony
 PRODUCT_BOOT_JARS += \
+    ImsServiceBase \
     mediatek-common \
     mediatek-framework \
     mediatek-ims-base \
@@ -124,11 +78,17 @@ PRODUCT_BOOT_JARS += \
     mediatek-telephony-common
 
 PRODUCT_PACKAGES += \
-    ImsServiceBase
+    ImsServiceBase \
+    libshim_vtservice
 
-# wifi
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/permissions/privapp-permissions-mediatek.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-mediatek.xml
+
+# VNDK
+PRODUCT_SHIPPING_API_LEVEL := 30
+PRODUCT_TARGET_VNDK_VERSION := 30
+
+# Wifi
 PRODUCT_PACKAGES += \
     TetheringConfigOverlay \
-    WifiOverlay \
-    DozeOverlaySystem \
-    DozeOverlaySystemUI
+    WifiOverlay
