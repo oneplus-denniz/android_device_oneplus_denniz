@@ -94,4 +94,12 @@ PRODUCT_TARGET_VNDK_VERSION := 30
 # Wifi
 PRODUCT_PACKAGES += \
     TetheringConfigOverlay \
-    WifiOverlay
+    WifiOverlay \
+
+PRODUCT_PACKAGES += \
+    wpa_supplicant \
+    wpa_supplicant.conf \
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
+    $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
