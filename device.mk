@@ -10,6 +10,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 # Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 
+# call proprietary blob setup
+$(call inherit-product-if-exists, vendor/oneplus/denniz/denniz-vendor.mk)
+
 # Alert slider
 PRODUCT_PACKAGES += \
     alert-slider_daemon
