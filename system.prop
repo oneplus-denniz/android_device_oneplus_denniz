@@ -1,12 +1,5 @@
-# Audio
-ro.audio.silent=0
-ro.camera.sound.forced=0
-
 # Brand
 Build.BRAND=MTK
-
-# Camera
-vendor.camera.aux.packagelist=org.lineageos.snap
 
 # Display
 qemu.hw.mainkeys=0
@@ -32,21 +25,3 @@ ro.mtk_perf_simple_start_win=1
 
 # Power
 sys.ipo.pwrdncap=2
-
-# Radio
-vendor.rild.libpath=mtk-ril.so
-vendor.rild.libargs=-d /dev/ttyC0
-
-# USB
-ro.sys.usb.mtp.whql.enable=0
-ro.sys.usb.storage.type=mtp
-ro.sys.usb.bicr=no
-ro.sys.usb.charging.only=yes
-
-# Wifi
-mediatek.wlan.ctia=0
-ro.mediatek.wlan.p2p=1
-ro.mediatek.wlan.wsc=1
-wifi.direct.interface=p2p0
-wifi.interface=wlan0
-wifi.tethering.interface=ap0
